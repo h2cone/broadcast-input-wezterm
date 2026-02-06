@@ -5,16 +5,25 @@ It adds a simple UI to send text (and optional Enter) to multiple panes.
 
 ## Install
 
-1) Copy `broadcast_input.lua` into your WezTerm config directory:
-   - Windows: `C:\Users\<you>\.wezterm\broadcast_input.lua`
-   - macOS/Linux: `~/.wezterm/broadcast_input.lua` (or `~/.config/wezterm/`)
-2) Require it from `.wezterm.lua`.
+1) Clone this repo into your WezTerm config directory:
+   - Windows (PowerShell):
+     ```powershell
+     cd $env:USERPROFILE\.wezterm
+     git clone https://github.com/h2cone/broadcast-input-wezterm.git
+     ```
+   - macOS/Linux:
+     ```bash
+     cd ~/.wezterm
+     git clone https://github.com/h2cone/broadcast-input-wezterm.git
+     ```
+2) Require it from `.wezterm.lua` as:
+   - `require("broadcast-input-wezterm.broadcast_input")`
 
 ## Quick start (minimal config)
 
 ```lua
 local wezterm = require("wezterm")
-local broadcast = require("broadcast_input")
+local broadcast = require("broadcast-input-wezterm.broadcast_input")
 
 local config = wezterm.config_builder()
 
@@ -96,4 +105,3 @@ You can also call these directly:
 - `api.broadcast_submit(window)`
 - `api.broadcast_text_and_submit(window, text)`
 - `api.prompt_and_broadcast(window, pane, opts)`
-
